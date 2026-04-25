@@ -1,0 +1,300 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.mainAppDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Wrapper (Contains Navbar and Hero) */
+.heroWrapper {
+  /* Using a generic food image as a background to mimic Zomato */
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&h=600&fit=crop');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styles */
+.navBarDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: transparent; /* Transparent to show the hero background */
+}
+
+.logoText {
+  color: white;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  font-size: 28px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navBtn {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.navBtn:hover {
+  background-color: white;
+  color: #cb202d;
+}
+
+/* Hero Section Styles */
+.heroDiv {
+  text-align: center;
+  padding: 80px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroHeading {
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.searchIcon {
+  font-size: 20px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.heroSearch {
+  padding: 15px 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+/* Filters Section */
+.filtersDiv {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap; /* Make it responsive on mobile */
+}
+
+.filterBtn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.filterBtn.active {
+  background-color: #cb202d;
+  color: white;
+  border-color: #cb202d;
+}
+
+/* Restaurant List Styles */
+.listDiv {
+  padding: 40px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.listHeading {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1c1c1c;
+  font-weight: 500;
+}
+
+/* CSS Grid layout for responsiveness */
+.cardsContainer {
+  display: grid;
+  /* Auto-fill creates columns automatically based on available width */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.noResults {
+  font-size: 20px;
+  color: #666;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 50px;
+}
+
+/* Restaurant Card Styles */
+.restoCard {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  transition: all 0.2s ease-in-out;
+  position: relative; 
+  cursor: pointer;
+}
+
+.restoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-color: transparent;
+}
+
+.imgDiv {
+  width: 100%;
+  height: 220px;
+  position: relative;
+}
+
+.restoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoDiv {
+  padding: 15px;
+}
+
+.restoName {
+  font-size: 20px;
+  color: #1c1c1c;
+  margin-bottom: 5px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restoCuisine {
+  font-size: 15px;
+  color: #696969;
+}
+
+/* Hover Details (⭐ Rating & 🍽 Top dish) */
+.hoverDetails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  height: 100%;
+}
+
+.restoCard:hover .hoverDetails {
+  opacity: 1;
+}
+
+.hoverRating {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f3c117;
+}
+
+.hoverTopDish {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Footer Styles */
+.footerDiv {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Mobile Responsiveness using Media Queries */
+@media (max-width: 768px) {
+  .navBarDiv {
+    padding: 15px 20px;
+  }
+  
+  .heroHeading {
+    font-size: 28px;
+  }
+  
+  .searchContainer {
+    width: 90%;
+  }
+  
+  .listDiv {
+    padding: 20px;
+  }
+  
+  .listHeading {
+    font-size: 24px;
+  }
+}
